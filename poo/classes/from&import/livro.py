@@ -26,9 +26,24 @@ class Livro:
         else:
             return "O livro não está dísponivel. Tente voltar outro dia!"
         
+    #Adicione um método estático chamado verificar_disponibilidade à classe Livro
+    #que recebe um ano como parâmetro e retorna uma lista dos livros disponíveis 
+    #publicados nesse ano.
+    def verificar_disponibilidade():
+        print(" ------------------")
+        print("|Livros Dísponiveis|")
+        print(" ------------------")
+        i = 0
+        for livro in Livro.livros:
+            if livro.disponivel == True:
+                print(livro)
+                i += 1
+        if i == 0:
+            print("Não existem livros dídponiveis no momento")
+        
 #autor e ano de publicação do livro. Crie duas instâncias
 #da classe Livro e imprima essas instâncias.
-livro1 = Livro("Dom kichute", "sancho pança", 2025, False)
+livro1 = Livro("Dom kichute", "sancho pança", 2025, True)
 livro2 = Livro("Dom casmurro", "Bob esponja", 2022, True)
 
 print(livro2.emprestar())
@@ -37,3 +52,5 @@ for livro in Livro.livros:
     print(livro)
 
 print(livro2.emprestar())
+
+Livro.verificar_disponibilidade()
